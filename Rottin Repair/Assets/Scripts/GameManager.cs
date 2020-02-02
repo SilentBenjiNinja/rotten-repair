@@ -53,7 +53,7 @@
         uiHandler.ShowPauseMenu();     }
          public void UnpauseGame() {
         Time.timeScale = 1;         uiHandler.HidePauseMenu();     } 
-    #endregion      #region Zombie Builder     
+    #endregion      #region Zombie Builder      [HideInInspector]
     public ZombieSetup currentSetup;      public void BringInNextZombie() {         currentSetup = new ZombieSetup();         currentSetup.parts = new Dictionary<Parts, ZombiePart>();
         for (int i = 0; i < Const.BODYPARTS; i++)
         {

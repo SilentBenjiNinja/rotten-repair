@@ -553,9 +553,153 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f157dc0218c464caabea0c5a18466b44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiHandler: {fileID: 0}
-  imageDictionary: []
-  levelZombieAmounts: 
+  uiHandler: {fileID: 1219785235}
+  imageDictionary:
+  - part: 1
+    zombieType: 0
+    decayState: 0
+    sprite: {fileID: 21300000, guid: 0490a6291d74348ad8d203f6789da5b4, type: 3}
+  - part: 1
+    zombieType: 0
+    decayState: 1
+    sprite: {fileID: 21300000, guid: 34f7cbbee008447db81ade0fc3711b35, type: 3}
+  - part: 1
+    zombieType: 0
+    decayState: 2
+    sprite: {fileID: 21300000, guid: 508b414c27b8d4de089d3d8d4516586b, type: 3}
+  - part: 2
+    zombieType: 0
+    decayState: 0
+    sprite: {fileID: 21300000, guid: 489484d79365549a09a261462f611011, type: 3}
+  - part: 2
+    zombieType: 0
+    decayState: 1
+    sprite: {fileID: 21300000, guid: ddf75d3282cb94ea59caf3ac81b89662, type: 3}
+  - part: 2
+    zombieType: 0
+    decayState: 2
+    sprite: {fileID: 21300000, guid: 5071419e47dab4951962a9eda7e642fc, type: 3}
+  - part: 3
+    zombieType: 0
+    decayState: 0
+    sprite: {fileID: 21300000, guid: a4bd630f0f2474e84ba40ce137f91b59, type: 3}
+  - part: 3
+    zombieType: 0
+    decayState: 1
+    sprite: {fileID: 21300000, guid: 9fa096adb5dd2409e90582f454f88fdb, type: 3}
+  - part: 3
+    zombieType: 0
+    decayState: 2
+    sprite: {fileID: 21300000, guid: 165e5d02dfc644bb9936201fb9efd99a, type: 3}
+  - part: 4
+    zombieType: 0
+    decayState: 0
+    sprite: {fileID: 21300000, guid: cb8e5994c74e64a3d94224dd0662bed8, type: 3}
+  - part: 4
+    zombieType: 0
+    decayState: 1
+    sprite: {fileID: 21300000, guid: e892e4f098652409a8e7048290fc516e, type: 3}
+  - part: 4
+    zombieType: 0
+    decayState: 2
+    sprite: {fileID: 21300000, guid: 440deac38a4b3455694d2b9560c7241d, type: 3}
+  - part: 5
+    zombieType: 0
+    decayState: 0
+    sprite: {fileID: 21300000, guid: c9a296d2173d5440f86a8f311e1de102, type: 3}
+  - part: 5
+    zombieType: 0
+    decayState: 1
+    sprite: {fileID: 21300000, guid: 7ef6e99232db04de3a082bf304451395, type: 3}
+  - part: 5
+    zombieType: 0
+    decayState: 2
+    sprite: {fileID: 21300000, guid: 23e3ccc02e39f4957a446a6b3380d102, type: 3}
+  - part: 6
+    zombieType: 0
+    decayState: 0
+    sprite: {fileID: 21300000, guid: 70085755679e84a5c8cb7754d166e70e, type: 3}
+  - part: 6
+    zombieType: 0
+    decayState: 1
+    sprite: {fileID: 21300000, guid: bf7e8a641d0174335beae9f4bdbf834e, type: 3}
+  - part: 6
+    zombieType: 0
+    decayState: 2
+    sprite: {fileID: 21300000, guid: b83533c1aa1d84791a5511098c53c37f, type: 3}
+  - part: 1
+    zombieType: 1
+    decayState: 0
+    sprite: {fileID: 21300000, guid: 1d65e6f6a7d59447b8a59c78fb96edfb, type: 3}
+  - part: 1
+    zombieType: 1
+    decayState: 1
+    sprite: {fileID: 21300000, guid: 3bf37cc45a16a4c8b9f3885b96b6b6e7, type: 3}
+  - part: 1
+    zombieType: 1
+    decayState: 2
+    sprite: {fileID: 21300000, guid: dc429b7bf0c1c43dba408c2da03f0ec0, type: 3}
+  - part: 2
+    zombieType: 1
+    decayState: 0
+    sprite: {fileID: 21300000, guid: e4f66866fd0b149269d296609fa19141, type: 3}
+  - part: 2
+    zombieType: 1
+    decayState: 1
+    sprite: {fileID: 21300000, guid: 49223e252815c418880e277407755299, type: 3}
+  - part: 2
+    zombieType: 1
+    decayState: 2
+    sprite: {fileID: 21300000, guid: 29fa9144ec37b4b908b5e93724bd3c26, type: 3}
+  - part: 3
+    zombieType: 1
+    decayState: 0
+    sprite: {fileID: 21300000, guid: 7e242b02ee52c4c8b82737062b8d1607, type: 3}
+  - part: 3
+    zombieType: 1
+    decayState: 1
+    sprite: {fileID: 21300000, guid: 0813ad5db285a4d7da856e6578fd6998, type: 3}
+  - part: 3
+    zombieType: 1
+    decayState: 2
+    sprite: {fileID: 21300000, guid: 43ce9c71479bc400f8d2ce25cb6b12fe, type: 3}
+  - part: 4
+    zombieType: 1
+    decayState: 0
+    sprite: {fileID: 21300000, guid: c9454cc555d784653af54352b0e06077, type: 3}
+  - part: 4
+    zombieType: 1
+    decayState: 1
+    sprite: {fileID: 21300000, guid: 303e776afbb0d4eb1aac294f5121c1e7, type: 3}
+  - part: 4
+    zombieType: 1
+    decayState: 2
+    sprite: {fileID: 21300000, guid: 5535dc2c8df5246a0b71fa0e2f7e63b8, type: 3}
+  - part: 5
+    zombieType: 1
+    decayState: 0
+    sprite: {fileID: 21300000, guid: d45e12ddf59ff4b3ab6a7fab33ecabd6, type: 3}
+  - part: 5
+    zombieType: 1
+    decayState: 1
+    sprite: {fileID: 21300000, guid: 562018398fdf44835ad2be5bcaf6f7c7, type: 3}
+  - part: 5
+    zombieType: 1
+    decayState: 2
+    sprite: {fileID: 21300000, guid: 58dcad2910b61476fbb857c7f114a357, type: 3}
+  - part: 6
+    zombieType: 1
+    decayState: 0
+    sprite: {fileID: 21300000, guid: ed697533420b34b8ebfd4a35419184d0, type: 3}
+  - part: 6
+    zombieType: 1
+    decayState: 1
+    sprite: {fileID: 21300000, guid: 89a2d96b30d224b0f9faa1672fcf9999, type: 3}
+  - part: 6
+    zombieType: 1
+    decayState: 2
+    sprite: {fileID: 21300000, guid: c28ec0fe6849340339b9769f1dc69569, type: 3}
+  levelZombieAmounts: 04000000060000000a000000
 --- !u!4 &951374137
 Transform:
   m_ObjectHideFlags: 0
