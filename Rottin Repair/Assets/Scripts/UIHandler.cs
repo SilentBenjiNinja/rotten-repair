@@ -45,9 +45,10 @@ public class UIHandler : MonoBehaviour
         EnableShipping();
         EnableSalvaging();
         SetScore("0");
-        while(grp_bottom.transform.childCount > 0)
+
+        foreach(Transform t in grp_bottom.transform)
         {
-            Destroy(grp_bottom.transform.GetChild(0).gameObject);
+          Destroy(t.gameObject);
         }
     }
 

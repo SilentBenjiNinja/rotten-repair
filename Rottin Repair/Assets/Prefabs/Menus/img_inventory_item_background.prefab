@@ -236,6 +236,7 @@ GameObject:
   - component: {fileID: 7146339063796898700}
   - component: {fileID: 7146339063796898701}
   - component: {fileID: 4776333140885936553}
+  - component: {fileID: 5477529852958384656}
   m_Layer: 5
   m_Name: img_inventory_item_background
   m_TagString: Untagged
@@ -343,3 +344,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5477529852958384656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7146339063796898707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09453c54cb97f49e384284622bf20910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

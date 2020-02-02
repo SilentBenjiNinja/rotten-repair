@@ -1,8 +1,8 @@
 ﻿using System.Collections; using System.Collections.Generic; using UnityEngine; using Collections; using System.Linq;  public class GameManager : MonoBehaviour {
-    [SerializeField]     public UIHandler uiHandler;      [Header("AssetsConfig")]      [SerializeField]     public List<ZombiePart> imageDictionary;      #region Game Flow      [Header("LevelConfig")]      [SerializeField]     public int[] levelZombieAmounts;      private int currentScore;     private int CurrentScore     {         get => currentScore;         set         {             currentScore = value;             uiHandler.SetScore(value.ToString());         }     }
-     private int currentLevel;     private int CurrentLevel     {         get => currentLevel;         set         {             currentLevel = value;             if (CurrentLevel >= levelZombieAmounts.Length) {                 EndGame();             }
+    [SerializeField]     public UIHandler uiHandler;      [Header("AssetsConfig")]      [SerializeField]     public List<ZombiePart> imageDictionary;      [SerializeField]     public List<ZombiePartSilhouettes> silhouetteDictionary;       #region Game Flow      [Header("LevelConfig")]      [SerializeField]     public int[] levelZombieAmounts;      [Header("Debug")]      [SerializeField]     private int currentScore;     private int CurrentScore     {         get => currentScore;         set         {             currentScore = value;             uiHandler.SetScore(value.ToString());         }     }
+     [SerializeField]     private int currentLevel;     private int CurrentLevel     {         get => currentLevel;         set         {             currentLevel = value;             if (CurrentLevel >= levelZombieAmounts.Length) {                 EndGame();             }
         }
-    }      private int currentLevelZombie;     private int CurrentLevelZombie     {         get => currentLevelZombie;         set         {             currentLevelZombie = value;             if (CurrentLevelZombie >= levelZombieAmounts[CurrentLevel]) {
+    }      [SerializeField]     private int currentLevelZombie;     private int CurrentLevelZombie     {         get => currentLevelZombie;         set         {             currentLevelZombie = value;             if (CurrentLevelZombie >= levelZombieAmounts[CurrentLevel]) {
                 StartLevel(CurrentLevel+1);             }             else
             {
                 BringInNextZombie();
@@ -11,7 +11,7 @@
     private void Start()     {
         StartGame();
     }
-     public void StartGame() {         currentScore = 0;         StartLevel(0);     }      public void StartLevel(int levelId) {}      public void EndGame() { }       private IEnumerator QuickTimeEvent() {         float phaseShift = Random.Range(-Mathf.PI, Mathf.PI);         float frequency = GetFrequency();         float startingTime = Time.time;          bool isClicked = false;         float currentCursorPosition = phaseShift;         while(isClicked == false)         {
+     public void StartGame() {         CurrentScore = 0;         StartLevel(0);     }      public void StartLevel(int levelId) {         // play level start animation         BringInNextZombie();     }      public void EndGame() { }       private IEnumerator QuickTimeEvent() {         float phaseShift = Random.Range(-Mathf.PI, Mathf.PI);         float frequency = GetFrequency();         float startingTime = Time.time;          bool isClicked = false;         float currentCursorPosition = phaseShift;         while(isClicked == false)         {
             currentCursorPosition = (float)(0.5 * Mathf.Sin(frequency * (Time.time - startingTime) + phaseShift) + 0.5);             print(currentCursorPosition);             yield return null;
             if (Input.anyKey)             {
                 isClicked = true;
@@ -54,18 +54,28 @@
          public void UnpauseGame() {
         Time.timeScale = 1;         uiHandler.HidePauseMenu();     } 
     #endregion      #region Zombie Builder      [HideInInspector]
-    public ZombieSetup currentSetup;      public void BringInNextZombie() {         currentSetup = new ZombieSetup();         currentSetup.parts = new Dictionary<Parts, ZombiePart>();
-        for (int i = 0; i < Const.BODYPARTS; i++)
+    public ZombieSetup currentSetup;      [Header("Display")]      [SerializeField]     public DisplayZombie displayZombie;      public void BringInNextZombie() {         currentSetup = new ZombieSetup();         for (int i = 0; i < Const.BODYPARTS; i++)
         {
             AddRandomPartToDictionary((Parts)(i+1));
-        }
-        // TO DO: show images; play in animation and sounds     } 
+        }         displayZombie.Show(currentSetup);
+        // play in animation and sounds     } 
     public void AddZombiePart(ZombiePart part) {         DeletePartFromInventory(part);         currentSetup.AddPart(part);
         // TO DO: refresh images     }      public void DeletePartFromTable(Parts partToRemove) {         currentSetup.RemovePart(partToRemove);         // TO DO: refresh images
     }
 
-    private void AddRandomPartToDictionary(Parts part) {
-        List<ZombiePart> partsList = imageDictionary.Where(zp => zp.part == part) as List<ZombiePart>;         currentSetup.parts.Add(part, partsList[Random.Range(0, partsList.Count)]);
+    private void AddRandomPartToDictionary(Parts part) {         //List<ZombiePart> partsList = imageDictionary.Where(zp => zp.part == part) as List<ZombiePart>;
+
+        List<ZombiePart> partsList = GetListOfZombieParts(part);
+        ZombiePart partToAdd = partsList[Random.Range(0, partsList.Count)];         currentSetup.AddPart(partToAdd);
+    }      private List<ZombiePart> GetListOfZombieParts(Parts part)
+    {         List<ZombiePart> returnValue = new List<ZombiePart>();
+        foreach (ZombiePart z in imageDictionary)
+        {
+            if(z.part == part)
+            {
+                returnValue.Add(z);
+            }
+        }         return returnValue;
     } 
     #endregion
 
