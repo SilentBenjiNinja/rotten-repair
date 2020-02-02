@@ -13,7 +13,7 @@ public class DisplayZombiePart : MonoBehaviour
     public Image img_inventoryItemSilhouette;
     public Image img_inventoryItem;
 
-    void Create(ZombiePart part)
+    public void Create(ZombiePart part)
     {
         txt_InventoryItemStat.text = part.decayState.ToString();
 
