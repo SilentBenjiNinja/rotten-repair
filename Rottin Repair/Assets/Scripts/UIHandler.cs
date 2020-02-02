@@ -22,6 +22,16 @@ public class UIHandler : MonoBehaviour
 
     public GameObject img_pauseMenu;
 
+    public GameObject grp_quicktime;
+    public RectTransform img_quicktimeCursor;
+
+    public Button btn_head;
+    public Button btn_body;
+    public Button btn_armL;
+    public Button btn_armR;
+    public Button btn_legL;
+    public Button btn_legR;
+
     private void Awake()
     {
         // btn_salvage = this.transform.Find("grp_top").Find("grp_salvage").Find("btn_salvage*").GetComponent<Button>();
@@ -45,6 +55,7 @@ public class UIHandler : MonoBehaviour
         EnableShipping();
         EnableSalvaging();
         SetScore("0");
+        grp_quicktime.SetActive(false);
 
         foreach(Transform t in grp_bottom.transform)
         {
@@ -82,9 +93,21 @@ public class UIHandler : MonoBehaviour
         txt_scoreValue.text = newValue;
     }
 
-    public void AddInventoryItem(ZombiePart newPart) { }// add button listener
+    public void SetQuicktimeCursor(float value)
+    {
+        Vector3 pos1 = new Vector3(-500, 0, 0),
+            pos2 = new Vector3(500, 0, 0);
+        img_quicktimeCursor.localPosition = Vector3.Lerp(pos1, pos2, value);
+    }
 
-    public void RemoveInventoryItem(int position) { }   // how to determine which one to remove?
+    public void AddInventoryItem(ZombiePart newPart) {
+        Instantiate(prefab_inventoryItem, grp_bottom.transform);
+        // add button with listener for 
+    }
+
+    public void RemoveInventoryItem(int position) {
+        // how to determine which one to remove?
+    }
 
     public void ShowPauseMenu() { 
         img_pauseMenu.SetActive(false);
