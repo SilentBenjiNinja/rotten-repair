@@ -31,24 +31,7 @@ public class UIHandler : MonoBehaviour
     public Button btn_armR;
     public Button btn_legL;
     public Button btn_legR;
-
-    private void Awake()
-    {
-        // btn_salvage = this.transform.Find("grp_top").Find("grp_salvage").Find("btn_salvage*").GetComponent<Button>();
-        // txt_cantSalvage = this.transform.Find("grp_top").Find("grp_salvage").Find("txt_cant_salvage*").gameObject;
-        // txt_cantSalvageReason = this.transform.Find("grp_top").Find("grp_salvage").Find("txt_cant_salvage_reason*").GetComponent<Text>();
-
-        // btn_ship = this.transform.Find("grp_top").Find("grp_ship").Find("btn_ship*").GetComponent<Button>();
-        // txt_cantShip = this.transform.Find("grp_top").Find("grp_ship").Find("txt_cant_ship*").gameObject;
-        // txt_cantShipReason = this.transform.Find("grp_top").Find("grp_ship").Find("txt_cant_ship_reason*").GetComponent<Text>();
-
-        // txt_scoreValue = this.transform.Find("grp_top").Find("grp_score").Find("txt_score_value").GetComponent<Text>();
-
-        // grp_bottom = this.transform.Find("grp_bottom").gameObject;
-
-        // img_pauseMenu = this.transform.Find("img_pause_menu").gameObject;
-    }
-
+    
     private void Start()
     {
         HidePauseMenu();
