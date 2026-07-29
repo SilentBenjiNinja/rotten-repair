@@ -2,7 +2,10 @@
     [SerializeField]     public UIHandler uiHandler;      [SerializeField]     public SoundManager soundManager;      [Header("AssetsConfig")]      [SerializeField]     public List<ZombiePart> imageDictionary;      [SerializeField]     public List<ZombiePartSilhouettes> silhouetteDictionary;      #region Game Flow      [Header("LevelConfig")]      [SerializeField]     public int[] levelZombieAmounts;      [Header("Debug")]      [SerializeField]     private int currentScore;     private int CurrentScore     {         get => currentScore;         set         {             currentScore = value;             uiHandler.SetScore(value.ToString());         }     }
      [SerializeField]     private int currentLevel;     private int CurrentLevel     {         get => currentLevel;         set         {             currentLevel = value;             if (CurrentLevel >= levelZombieAmounts.Length) {                 EndGame();             }         }
     }
-     [SerializeField]     private int currentLevelZombie;     private int CurrentLevelZombie     {         get => currentLevelZombie;         set         {             currentLevelZombie = value;             if (CurrentLevelZombie >= levelZombieAmounts[CurrentLevel]) {                 CurrentLevel += 1;                 StartLevel(CurrentLevel);
+     [SerializeField]     private int currentLevelZombie;     private int CurrentLevelZombie     {         get => currentLevelZombie;         set         {             currentLevelZombie = value;             if (CurrentLevel >= levelZombieAmounts.Length)
+            {
+                return;
+            }             if (CurrentLevelZombie >= levelZombieAmounts[CurrentLevel]) {                 CurrentLevel += 1;                 StartLevel(CurrentLevel);
             }             else             {
                 BringInNextZombie();
             }
@@ -88,11 +91,16 @@
         {
             inventoryList.Remove(partToRemove);
         }         soundManager.PlaySound("remove");
+        uiHandler.RenderInventory(inventoryList);
         // TO DO: refresh images
     }      public void AddToInventory(List<ZombiePart> partList) {         if(inventoryList.Count + partList.Count <= Const.MAXINVENTORYSPACE)
         {
             inventoryList.AddRange(partList);             foreach (ZombiePart p in partList)
-            {                 uiHandler.AddInventoryItem(p);             }         }     }
+            {                 uiHandler.AddInventoryItem(p);             }
+            uiHandler.RenderInventory(inventoryList);
+        }     }
+
+
 
     #endregion
 } 

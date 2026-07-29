@@ -31,7 +31,7 @@ public class UIHandler : MonoBehaviour
     public Button btn_armR;
     public Button btn_legL;
     public Button btn_legR;
-    
+
     private void Start()
     {
         HidePauseMenu();
@@ -40,39 +40,44 @@ public class UIHandler : MonoBehaviour
         SetScore("0");
         grp_quicktime.SetActive(false);
 
-        foreach(Transform t in grp_bottom.transform)
+        foreach (Transform t in grp_bottom.transform)
         {
-          Destroy(t.gameObject);
+            Destroy(t.gameObject);
         }
     }
 
-    public void EnableSalvaging() {
+    public void EnableSalvaging()
+    {
         btn_salvage.interactable = true;
         txt_cantSalvage.SetActive(false);
         txt_cantSalvageReason.gameObject.SetActive(false);
     }
 
-    public void DisableSalvaging(string reason) {
+    public void DisableSalvaging(string reason)
+    {
         btn_salvage.interactable = false;
         txt_cantSalvage.SetActive(true);
         txt_cantSalvageReason.gameObject.SetActive(true);
         txt_cantSalvageReason.text = reason;
     }
 
-    public void EnableShipping() {
+    public void EnableShipping()
+    {
         btn_ship.interactable = true;
         txt_cantShip.SetActive(false);
         txt_cantShipReason.gameObject.SetActive(false);
     }
 
-    public void DisableShipping(string reason) {
+    public void DisableShipping(string reason)
+    {
         btn_ship.interactable = false;
         txt_cantShip.SetActive(true);
         txt_cantShipReason.gameObject.SetActive(true);
         txt_cantShipReason.text = reason;
     }
 
-    public void SetScore(string newValue) {
+    public void SetScore(string newValue)
+    {
         txt_scoreValue.text = newValue;
     }
 
@@ -83,20 +88,31 @@ public class UIHandler : MonoBehaviour
         img_quicktimeCursor.localPosition = Vector3.Lerp(pos1, pos2, value);
     }
 
-    public void AddInventoryItem(ZombiePart newPart) {
-        Instantiate(prefab_inventoryItem, grp_bottom.transform);
-        // add button with listener for 
+    public void AddInventoryItem(ZombiePart newPart)
+    {
+        DisplayZombiePart dzp = Instantiate(prefab_inventoryItem, grp_bottom.transform).GetComponent<DisplayZombiePart>();
+        dzp.GetComponent<Button>().onClick.AddListener(()=> { 
+            // TODO: when inventory item is clicked
+        });
     }
 
-    public void RemoveInventoryItem(int position) {
+    public void RemoveInventoryItem(int position)
+    {
         // how to determine which one to remove?
     }
 
-    public void ShowPauseMenu() { 
+    public void ShowPauseMenu()
+    {
         img_pauseMenu.SetActive(false);
     }
 
-    public void HidePauseMenu() {
+    public void HidePauseMenu()
+    {
         img_pauseMenu.SetActive(false);
+    }
+
+    public void RenderInventory(List<ZombiePart> zombieParts)
+    {
+
     }
 }
